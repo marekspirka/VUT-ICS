@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ICS_project.DAL\ICS_project.DAL.csproj" />
+    <!-- <ProjectReference Include="..\ICS_project.DAL.Test\ICS_project.DAL.Test.csproj" /> -->
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Mappers\" />
+    <None Remove="Mappers\Interfaces\" />
+    <None Remove="IModelMapper.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mappers\" />
+    <Folder Include="Mappers\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Scrutor" Version="4.2.2" />
+  </ItemGroup>
+</Project>

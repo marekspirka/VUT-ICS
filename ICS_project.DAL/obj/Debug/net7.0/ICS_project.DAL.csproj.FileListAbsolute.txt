@@ -1,0 +1,14 @@
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\bin\Debug\net7.0\ICS_project.DAL.deps.json
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\bin\Debug\net7.0\ICS_project.DAL.runtimeconfig.json
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\bin\Debug\net7.0\ICS_project.DAL.dll
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\bin\Debug\net7.0\ICS_project.DAL.pdb
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\obj\Debug\net7.0\ICS_project.DAL.csproj.AssemblyReference.cache
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\obj\Debug\net7.0\ICS_project.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\obj\Debug\net7.0\ICS_project.DAL.AssemblyInfoInputs.cache
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\obj\Debug\net7.0\ICS_project.DAL.AssemblyInfo.cs
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\obj\Debug\net7.0\ICS_project.DAL.csproj.CoreCompileInputs.cache
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\obj\Debug\net7.0\ICS_project.DAL.dll
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\obj\Debug\net7.0\refint\ICS_project.DAL.dll
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\obj\Debug\net7.0\ICS_project.DAL.pdb
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\obj\Debug\net7.0\ICS_project.DAL.genruntimeconfig.cache
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.DAL\obj\Debug\net7.0\ref\ICS_project.DAL.dll

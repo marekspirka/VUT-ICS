@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:templates="clr-namespace:ICS_project.App.Templates"
+                       xmlns:views="clr-namespace:ICS_project.App.Views"
+                       xmlns:m="clr-namespace:ICS_project.BL.Models;assembly=ICS_project.BL"
+                       xmlns:vm="clr-namespace:ICS_project.App.ViewModels"
+                       x:Name="TagEditViewRoot"
+                       x:DataType="vm:TagEditViewModel"
+                       x:Class="ICS_project.App.Views.Tags.TagEditView">
+    <Grid
+        RowDefinitions="50, *"
+    >
+        <templates:ListViewHeader
+            Grid.Row="0"
+            UserName="{Binding UserService.CurrentUser.Name}"
+            UserPhotoLink="{Binding UserService.CurrentUser.ImageUrl}"/>
+        <Grid 
+            Grid.Column="0" 
+            Grid.Row="0" 
+            BackgroundColor="{StaticResource Primary}" 
+        >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Fast Time Manager" VerticalTextAlignment="Center" Margin="10,0,0,0"></Label>
+            <FlexLayout 
+                Grid.Column="1" 
+                JustifyContent="End">
+
+                <Label Text="{Binding CurrentUser.Name}" VerticalTextAlignment="Center"></Label>
+                <Frame CornerRadius="25" WidthRequest="45" HeightRequest="45"  Margin="5,2,10,0" Padding="0" HasShadow="False">
+                    <Image Source="{Binding CurrentUser.ImageUrl}" Aspect="AspectFit" />
+                </Frame>
+            </FlexLayout>
+        </Grid>
+        <Grid
+            Grid.Row="2"
+            BackgroundColor="{StaticResource Background}"
+            RowDefinitions="*,30,50,50,*"
+        >
+            <Label
+                Grid.Row="1"
+                TextColor="Black"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                FontAttributes="Bold"
+                Text="Write new name of tag:" 
+            ></Label>
+            <Border
+                Grid.Row="2"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                >
+                <Entry
+                    x:Name="TagNameEntry"
+                    Text="{Binding NewTag.Name}"
+                    TextColor="Gray"
+                />
+            </Border>
+            <FlexLayout
+                Grid.Row="4"
+                JustifyContent="End"
+                Margin="0,0,130,0"
+                >
+                <Button
+                    x:Name="ExitButton"
+                    Text="Back"
+                    BackgroundColor="Red"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    MinimumWidthRequest="100"
+                    Margin="5"
+                    Command="{Binding GoToBackCommand}"
+                    />
+                <Button
+                    x:Name="SaveButton"
+                    Text="Save"
+                    VerticalOptions="Center"
+                    BackgroundColor="Green"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    MinimumWidthRequest="100"
+                    Command="{Binding SaveCommand}"
+                    CommandParameter="{Binding CurrentUser.Id}"
+                    />
+            </FlexLayout>
+        </Grid>
+    </Grid>
+</views:ContentPageBase>

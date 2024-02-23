@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:ICS_project.App.Templates"
+             xmlns:vm="clr-namespace:ICS_project.App.ViewModels"
+             xmlns:views="using:ICS_project.App.Views"
+             x:Class="ICS_project.App.Views.Activities.ActivityFilterEditView"
+             x:Name="ActivityFilterEditViewRoot"
+             x:DataType="vm:ActivityFilterEditViewModel"
+             Title="">
+    <Grid
+        RowDefinitions="50, *"
+        ColumnDefinitions="*"
+        >
+        <templates:ListViewHeader
+            Grid.Row="0"
+            Grid.Column="0"
+            UserName="{Binding UserService.CurrentUser.Name}"
+            UserPhotoLink="{Binding UserService.CurrentUser.ImageUrl}"/>
+        <Grid
+            Grid.Column="0"
+            Grid.Row="0"
+            BackgroundColor="{StaticResource Primary}"
+            HeightRequest="70"
+            Padding="0,5,0,0"
+        >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Fast Time Manager" VerticalTextAlignment="Center" Margin="10,0,0,0"></Label>
+            <FlexLayout
+                Grid.Column="1"
+                JustifyContent="End">
+                <Label Text="{Binding CurrentUser.Name}" VerticalTextAlignment="Center"></Label>
+                <Frame CornerRadius="25" WidthRequest="45" HeightRequest="45" Margin="5,2,10,0" Padding="0" HasShadow="False">
+                    <Image Source="{Binding CurrentUser.ImageUrl}" Aspect="AspectFit" />
+                </Frame>
+            </FlexLayout>
+        </Grid>
+        <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            Padding="20"
+            BackgroundColor="{StaticResource Background}"
+            RowDefinitions="*,20,45,90,18,45,18,45,18,60,100,*"
+            RowSpacing="15"
+        >
+            <Label
+                Grid.Row="1"
+                TextColor="Black"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="520"
+                FontAttributes="Bold"
+                Text="Write new name of tag:" 
+            ></Label>
+            <Border
+                Grid.Row="2"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="520"
+            >
+                <Entry
+                    x:Name="TagNameEntry"
+                    Text="{Binding Activity.Name}"
+                    TextColor="DimGray"
+                />
+            </Border>
+            <Grid
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="520"
+                Grid.Row="3"
+                ColumnDefinitions="*, *"
+                RowDefinitions="25,40,20"
+                ColumnSpacing="20">
+                <Label
+                    Grid.Row="0"
+                    Margin="10,0,0,0"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    Text="Choose duration of the activity:" 
+                ></Label>
+                <FlexLayout
+                    Grid.Row="1">
+                    <TimePicker
+                        Margin="0,3,0,0"
+                        Time="{Binding Activity.Start.TimeOfDay, Mode=TwoWay}"
+                        WidthRequest="250"
+                        TextColor="DimGray"
+                        Format="HH-MM"
+                    />
+                    <Image Source="right_arrow.png"
+                           Aspect="AspectFit"
+                           HeightRequest="15"
+                           Margin="9">
+                    </Image>
+                    <TimePicker
+                        Margin="0,3,0,0"
+                        WidthRequest="250"
+                        Time="{Binding Activity.End.TimeOfDay, Mode=TwoWay}"
+                        TextColor="DimGray"
+                        Format="HH-MM"
+                    />
+                </FlexLayout>
+                <Label
+                    Grid.Row="2"
+                    Margin="60,0,0,0"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    Text="Choose date:" 
+                ></Label>
+                <DatePicker
+                    Margin="0,5,60,0"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    HorizontalOptions="Center"
+                    Date="{Binding Activity.Start.Date, Mode=TwoWay}"
+                    TextColor="DimGray"
+                />
+            </Grid>
+
+            <Label
+                Grid.Row="4"
+                TextColor="Black"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="300"
+                FontAttributes="Bold"
+                Text="Choose tag for your activity:" 
+            ></Label>
+            <Border
+                Grid.Row="5"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="300">
+                <Picker
+                    MinimumHeightRequest="45"
+                    MinimumWidthRequest="300"
+                    TitleColor="Gray"
+                    TextColor="Gray"
+                    ItemsSource="{Binding Tags}"
+                    ItemDisplayBinding="{Binding Tags.Name}"
+                    SelectedItem="{Binding Activity.Tags}"
+                    />
+            </Border>
+            <Label
+                Grid.Row="6"
+                TextColor="Black"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="300"
+                FontAttributes="Bold"
+                Text="Choose project for your activity:" 
+            ></Label>
+            <Border
+                Grid.Row="7"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="300"
+                >
+                <Border.Content>
+                    <Picker
+                        MinimumHeightRequest="45"
+                        MinimumWidthRequest="300"
+                        TitleColor="Gray"
+                        TextColor="Gray"
+                        ItemsSource="{Binding Projects}"
+                        ItemDisplayBinding="{Binding Projects.Name}"
+                        SelectedItem="{Binding Activity.Project}"
+                    />
+                </Border.Content>
+            </Border>
+            <FlexLayout
+                Grid.Row="9"
+                JustifyContent="End"
+                Margin="0,0,130,0"
+                >
+                <Button
+                    x:Name="ExitButton"
+                    Text="Back"
+                    BackgroundColor="Red"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    MinimumWidthRequest="100"
+                    Margin="5"
+                    Command="{Binding GoToBackCommand}"
+                />
+                <Button
+                    x:Name="SaveButton"
+                    Text="Save"
+                    VerticalOptions="Center"
+                    BackgroundColor="Green"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    MinimumWidthRequest="100"
+                    Command="{Binding SaveCommand}"
+                />
+            </FlexLayout>
+        </Grid>
+    </Grid>
+</views:ContentPageBase>

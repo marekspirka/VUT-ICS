@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="using:ICS_project.App.Views"
+             xmlns:m="clr-namespace:ICS_project.BL.Models;assembly=ICS_project.BL"
+             xmlns:vm="clr-namespace:ICS_project.App.ViewModels"
+             x:Name="UserListViewRoot"
+             x:DataType="vm:UserListViewModel"
+             x:Class="ICS_project.App.Views.Users.UserListView"
+             Title="">
+
+    <Grid BackgroundColor="{StaticResource Background}" RowDefinitions="*" ColumnDefinitions="*" RowSpacing="20"
+        HorizontalOptions="FillAndExpand" Padding="50,0,0,0">
+        <ScrollView VerticalScrollBarVisibility="Always" HorizontalScrollBarVisibility="Never">
+            <CollectionView x:Name="CollectionView" ItemsSource="{Binding Users}" HorizontalOptions="Center" WidthRequest="1200" HeightRequest="400">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Horizontal"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="m:UserDetailModel">
+                    
+                    <Frame  WidthRequest="200" 
+                                    HeightRequest="300"
+                                    BackgroundColor="White"
+                                    CornerRadius="10"
+                                    Margin="0,0,50,0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={x:Reference UserListViewRoot}, Path=BindingContext.GoToActivityWithUserCommand}"
+                                          CommandParameter="{Binding Id}" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="10"/>
+                                    <RowDefinition Height="30" />
+                                    <RowDefinition Height="30" />
+                                </Grid.RowDefinitions>
+                                <Frame HeightRequest="150"
+                                           WidthRequest="150"
+                                           CornerRadius="100"
+                                           HorizontalOptions="Center"
+                                           IsClippedToBounds="True"
+                                           Padding="0"
+                                           BorderColor="Gray"
+                                           Margin="0,0,0,0">
+                                    <Image
+                                                Aspect="Fill"
+                                                Source="{Binding ImageUrl}"
+                                                HeightRequest="150"
+                                                WidthRequest="150"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"/>
+                                </Frame>
+                                <Label Grid.Row="3"
+                                       FontSize="20"
+                                       Margin="5,0,0,0"
+                                       Text="{Binding Name}"
+                                       TextColor="{StaticResource Black}"
+                                       VerticalTextAlignment="Center"
+                                       Padding="5"></Label>
+                                <Label Grid.Row="4"
+                                       FontSize="20"
+                                       Margin="5,0,0,0"
+                                       Text="{Binding Surname}"
+                                       TextColor="{StaticResource Black}"
+                                       VerticalTextAlignment="Center"
+                                       Padding="5"></Label>
+                            </Grid>
+                            <BoxView Color="Black" HeightRequest="1" Margin="2"/>
+                            <ImageButton 
+                                Grid.Column="1"
+                                Source="trash.png"
+                                Padding="10"
+                                Margin="0,0,0,0"
+                                HeightRequest="2"
+                                WidthRequest="2"
+                                Command="{Binding Source={x:Reference UserListViewRoot}, Path=BindingContext.DeleteUserCommand}" CommandParameter="{Binding Id}"
+                            />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        <Button
+            x:Name="ExitButton"
+            BorderWidth="1"
+            BorderColor="Black"
+            Text="New User"
+            BackgroundColor="White"
+            FontAttributes="Bold"
+            TextColor="Black"
+            VerticalOptions="Start"
+            HorizontalOptions="End"
+            MinimumWidthRequest="100"
+            Margin="5,25,25,5"
+            Command="{Binding Source={x:Reference UserListViewRoot}, Path=BindingContext.GoToCreateCommand}"
+        />
+    </Grid>
+</views:ContentPageBase>

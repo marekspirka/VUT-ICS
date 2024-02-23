@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       Title=""
+                       xmlns:templates="clr-namespace:ICS_project.App.Templates"
+                       xmlns:views="clr-namespace:ICS_project.App.Views"
+                       xmlns:m="clr-namespace:ICS_project.BL.Models;assembly=ICS_project.BL"
+                       xmlns:vm="clr-namespace:ICS_project.App.ViewModels"
+                       x:Name="TagListViewRoot"
+                       x:DataType="vm:TagListViewModel"
+                       x:Class="ICS_project.App.Views.Tags.TagListView">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <templates:ListViewHeader
+            Grid.Column="0"
+            Grid.Row="0"
+            UserName="{Binding UserService.CurrentUser.Name}"
+            UserPhotoLink="{Binding UserService.CurrentUser.ImageUrl}"/>
+
+        <Grid
+            Grid.Column="0"
+            Grid.Row="0"
+            BackgroundColor="{StaticResource Primary}"
+            HeightRequest="70"
+            Padding="0,5,0,0"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Fast Time Manager" VerticalTextAlignment="Center" Margin="10,0,0,0"></Label>
+            <FlexLayout
+                Grid.Column="1"
+                JustifyContent="End">
+                <Label Text="{Binding CurrentUser.Name}" VerticalTextAlignment="Center"></Label>
+                <Frame CornerRadius="25" WidthRequest="45" HeightRequest="45" Margin="5,2,0,0" Padding="0" HasShadow="False">
+                    <Image Source="{Binding CurrentUser.ImageUrl}" Aspect="AspectFit" />
+                </Frame>
+                <Button x:Name="ChangeUserButton" Text="Change" BackgroundColor="{StaticResource Primary}" BorderWidth="2" TextColor="White" Margin="10,0,0,0" 
+                        Command="{Binding Source={x:Reference TagListViewRoot},Path=BindingContext.GoToChangeUserCommand}"></Button>
+                <Button x:Name="EditUserButton" Text="Edit" BackgroundColor="{StaticResource Primary}" BorderWidth="2" TextColor="White" Padding="25,0,25,0" Margin="10,0,10,0"
+                        Command="{Binding Source={x:Reference TagListViewRoot},Path=BindingContext.GoToEditUserCommand}"
+                CommandParameter="{Binding UserService.CurrentUser.Id}"></Button>
+            </FlexLayout>
+        </Grid>
+
+        <StackLayout
+            Grid.Column="0"
+            Grid.Row="1"
+            BackgroundColor="{StaticResource Background}"
+            >
+            <Grid
+                BackgroundColor="{StaticResource Tertiary}"
+                Margin="5"
+                Padding="10, 2"
+             >
+                <Label 
+                    FontSize="18"
+                    Margin="0, 9, 0, 0 "
+                    Text="All Tags" 
+                ></Label>
+                <ImageButton 
+                    Source="plus.png"
+                    Padding="9"
+                    Margin="0,0,0,0"
+                    HeightRequest="3"
+                    WidthRequest="3"
+                    Command="{Binding Source={x:Reference TagListViewRoot},Path=BindingContext.GoToCreateTagCommand}"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="End"
+                />
+            </Grid>
+            <CollectionView x:Name="CollectionView" ItemsSource="{Binding Tags}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:TagModel">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"
+                                    Margin="5,0,0,0"
+                                    Text="{Binding Name}"
+                                    TextColor="{StaticResource Black}"
+                                    VerticalTextAlignment="Center"
+                                    Padding="5"></Label>
+                                <FlexLayout
+                                    Grid.Column="1"
+                                    JustifyContent="End"
+                                    AlignContent="Center">
+                                    <HorizontalStackLayout
+                                        Spacing="20">
+                                        <Button Text="Edit"
+                                                WidthRequest="80"
+                                                HeightRequest="25"
+                                                Command="{Binding Source={x:Reference TagListViewRoot},Path=BindingContext.GoToEditTagCommand}" CommandParameter="{Binding Id}" >
+                                        </Button>
+                                        <Button Text="Delete"
+                                                WidthRequest="80"
+                                                HeightRequest="25"
+                                                Margin="0,0,10,0"
+                                                Command="{Binding Source={x:Reference TagListViewRoot},Path=BindingContext.DeleteTagCommand}" CommandParameter="{Binding Id}">
+                                        </Button>
+                                    </HorizontalStackLayout>
+                                </FlexLayout>
+                            </Grid>
+                            <BoxView Color="Black" HeightRequest="1" Margin="2"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+
+</views:ContentPageBase>

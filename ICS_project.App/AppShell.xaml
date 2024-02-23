@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ICS_project.App.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:a="clr-namespace:ICS_project.App.Views.Activities"
+    xmlns:p="clr-namespace:ICS_project.App.Views.Projects"
+    xmlns:t="clr-namespace:ICS_project.App.Views.Tags"
+    xmlns:u="clr-namespace:ICS_project.App.Views.Users"
+    xmlns:local="clr-namespace:ICS_project.App"
+    x:Name="AppShellRoot"
+    FlyoutBehavior="Disabled"
+    >
+
+    <Shell.MenuBarItems>
+        <MenuBarItem Text="Menu">
+            <MenuFlyoutItem 
+                Text="Activities"
+                Command="{Binding Source={x:Reference AppShellRoot}, Path=GoToActivitiesCommand}"/>
+            <MenuFlyoutItem
+                Text="Projects"
+                Command="{Binding Source={x:Reference AppShellRoot}, Path=GoToProjectsCommand}"/>
+            <MenuFlyoutItem
+                Text="Tags"
+                Command="{Binding Source={x:Reference AppShellRoot}, Path=GoToTagsCommand}"/>
+            <MenuFlyoutItem
+                Text="Users"
+                Command="{Binding Source={x:Reference AppShellRoot}, Path=GoToUsersCommand}"/>
+        </MenuBarItem>
+    </Shell.MenuBarItems>
+
+    <ShellContent ContentTemplate="{DataTemplate u:UserListView}" Route="users" />
+    <ShellContent ContentTemplate="{DataTemplate a:ActivityListView}" Route="activities" />
+    <ShellContent ContentTemplate="{DataTemplate p:ProjectListView}" Route="projects" />
+    <ShellContent ContentTemplate="{DataTemplate t:TagListView}" Route="tags" />
+
+</Shell>

@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:templates="clr-namespace:ICS_project.App.Templates"
+             xmlns:views="using:ICS_project.App.Views"
+             xmlns:vm="clr-namespace:ICS_project.App.ViewModels"
+             x:Class="ICS_project.App.Views.Users.UserEditView"
+             x:DataType="vm:UserEditViewModel"
+             x:Name="UserEditViewRoot"
+             Title="">
+   <Grid
+        RowDefinitions="50, *"
+        >
+        <templates:ListViewHeader
+            Grid.Row="0"
+            UserName="{Binding UserService.CurrentUser.Name}"
+            UserPhotoLink="{Binding UserService.CurrentUser.ImageUrl}"/>
+        <Grid
+            Grid.Column="0"
+            Grid.Row="0"
+            BackgroundColor="{StaticResource Primary}"
+            HeightRequest="70"
+            Padding="0,5,0,0"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Fast Time Manager" VerticalTextAlignment="Center" Margin="10,0,0,0"></Label>
+        </Grid>
+        <Grid
+            Grid.Row="1"
+            BackgroundColor="{StaticResource Background}"
+            RowDefinitions="*,120,50,50,20,50,20,50,100,*"
+            RowSpacing="10"
+            >
+            <Frame
+                Grid.Row="1"
+                HeightRequest="180"
+                WidthRequest="180"
+                CornerRadius="100"
+                HorizontalOptions="Center"
+                IsClippedToBounds="True"
+                Margin="0,20,0,30"
+                Padding="0">
+
+                <Image
+                    Aspect="Fill"
+                    Source="{Binding ProfileImage}"
+                    BackgroundColor="Black"
+                    HeightRequest="180"
+                    WidthRequest="180"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    />
+            </Frame>
+            <Label
+                Grid.Row="2"
+                TextColor="Black"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                Margin="0,25,0,0"
+                FontAttributes="Bold"
+                Text="Write your name:" 
+            ></Label>
+            <Border
+                Grid.Row="3"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                >
+                <Entry
+                    x:Name="UserNameEntry"
+                    Placeholder="Name"
+                    Text="{Binding NewUser.Name}"
+                    TextColor="Gray"
+                    />
+            </Border>
+            <Label
+                Grid.Row="4"
+                TextColor="Black"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                Margin="0,0,0,0"
+                FontAttributes="Bold"
+                Text="Write your surname:" 
+            ></Label>
+            <Border
+                Grid.Row="5"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                >
+                <Entry
+                    x:Name="UserSurnameEntry"
+                    Placeholder="Surname"
+                    Text="{Binding NewUser.Surname}"
+                    TextColor="Gray"
+                    />
+            </Border>
+            <Label
+                Grid.Row="6"
+                TextColor="Black"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                FontAttributes="Bold"
+                Text="Write your URL of pic:" 
+            ></Label>
+            <Border
+                Grid.Row="7"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                >
+                <Entry
+                    x:Name="UserUrlEntry"
+                    Placeholder="URL"
+                    Text="{Binding NewUser.ImageUrl}"
+                    TextColor="Gray"
+                    />
+            </Border>
+            <FlexLayout
+                Margin="0,20,150,0"
+                Grid.Row="8"
+                JustifyContent="End"
+                >
+                <Button
+                    x:Name="ExitButton"
+                    Text="Back"
+                    BackgroundColor="Red"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    MinimumWidthRequest="100"
+                    Margin="5"
+                    Command="{Binding GoToBackCommand}"
+                    />
+                <Button
+                    x:Name="SaveButton"
+                    Text="Save"
+                    BackgroundColor="Green"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    MinimumWidthRequest="100"
+                    Command="{Binding SaveCommand}"
+                    />
+            </FlexLayout>
+        </Grid>
+    </Grid>
+</views:ContentPageBase>

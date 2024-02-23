@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="this"
+             x:Class="ICS_project.App.Templates.ListViewHeader">
+
+        <Grid BindingContext="{x:Reference this}" 
+            BackgroundColor="{StaticResource Primary}"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Fast Time Manager" VerticalTextAlignment="Center" Margin="10,0,0,0"></Label>
+            <FlexLayout 
+                Grid.Column="1" 
+                JustifyContent="End">
+                <Label Text="{Binding UserName, FallbackValue='User Name'}" VerticalTextAlignment="Center"></Label>
+                <Image Source="{Binding UserPhotoLink}" Aspect="AspectFit" HeightRequest="50"></Image>
+            </FlexLayout>
+        </Grid>
+</ContentView>

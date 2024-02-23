@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:ICS_project.App.Views"
+             xmlns:templates="clr-namespace:ICS_project.App.Templates"
+             xmlns:m="clr-namespace:ICS_project.BL.Models;assembly=ICS_project.BL"
+             xmlns:vm="clr-namespace:ICS_project.App.ViewModels"
+             x:Class="ICS_project.App.Views.Projects.ProjectEditView"
+             x:Name="ProjectEditViewRoot"
+             x:DataType="vm:ProjectEditViewModel"
+             Title="">
+
+    <Grid
+        RowDefinitions="50, *"
+        >
+        <templates:ListViewHeader
+            Grid.Row="0"
+            UserName="{Binding UserService.CurrentUser.Name}"
+            UserPhotoLink="{Binding UserService.CurrentUser.ImageUrl}"/>
+         <Grid 
+             Grid.Column="0" 
+             Grid.Row="0" 
+             BackgroundColor="{StaticResource Primary}" 
+             > 
+             <Grid.RowDefinitions> 
+                 <RowDefinition Height="50" /> 
+             </Grid.RowDefinitions> 
+             <Grid.ColumnDefinitions> 
+                 <ColumnDefinition Width="*" /> 
+                 <ColumnDefinition Width="*" /> 
+             </Grid.ColumnDefinitions> 
+             <Label Grid.Column="0" Text="Fast Time Manager" VerticalTextAlignment="Center" Margin="10,0,0,0"></Label> 
+             <FlexLayout 
+                 Grid.Column="1" 
+                 JustifyContent="End">
+
+                 <Label Text="{Binding CurrentUser.Name}" VerticalTextAlignment="Center"></Label>
+                <Frame CornerRadius="25" WidthRequest="45" HeightRequest="45"  Margin="5,2,10,0" Padding="0" HasShadow="False">
+                     <Image Source="{Binding CurrentUser.ImageUrl}" Aspect="AspectFit" />
+                 </Frame>
+            </FlexLayout> 
+         </Grid> 
+        
+        <Grid
+            Grid.Row="1"
+            BackgroundColor="{StaticResource Background}"
+            RowDefinitions="*,20,50,30,120,60,*"
+            RowSpacing="20"
+            >
+            <Label
+                Grid.Row="1"
+                TextColor="Black"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                FontAttributes="Bold"
+                Text="Write name of project:"
+            ></Label>
+            <Border
+                Grid.Row="2"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                >
+                <Entry
+                    x:Name="entry"
+                    Text="{Binding NewProject.Name}"
+                    TextColor="Gray"
+                    />
+            </Border>
+            <FlexLayout
+                Grid.Row="3"
+                HorizontalOptions="Fill"
+                MaximumWidthRequest="540"
+                >
+                <Label
+                    Margin="0,5,0,0"
+                    Text="Members of team:"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    />
+
+            </FlexLayout>
+            <CollectionView ItemsSource="{Binding Project.Users}"
+                            Grid.Row="4"
+                            HorizontalOptions="Fill">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:UserDetailModel">
+                        <Grid
+                        ColumnDefinitions="285,60,60">
+                        <Label
+                            Grid.Column="1"
+                            HorizontalOptions="Center"
+                            Text="{Binding Name}"
+                            TextColor="Black"
+                        />
+                        <Label
+                            Grid.Column="2"
+                            Text="{Binding Surname}"
+                            TextColor="Black"
+                        />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <FlexLayout
+                Grid.Row="5"
+                JustifyContent="End"
+                Margin="0,0,220,0">
+                <Button
+                    x:Name="ExitButton"
+                    Text="Back"
+                    BackgroundColor="Red"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    MinimumWidthRequest="100"
+                    Margin="5"
+                    Command="{Binding GoToBackCommand}"
+                />
+                <Button
+                    x:Name="SaveButton"
+                    Text="Save"
+                    VerticalOptions="Center"
+                    BackgroundColor="Green"
+                    FontAttributes="Bold"
+                    TextColor="White"
+                    HorizontalOptions="Center"
+                    MinimumWidthRequest="100"
+                    Command="{Binding SaveCommand}"
+                />
+            </FlexLayout>
+        </Grid>
+    </Grid>
+</views:ContentPageBase>

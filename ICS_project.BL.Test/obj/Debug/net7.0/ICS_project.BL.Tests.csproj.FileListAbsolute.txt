@@ -1,0 +1,6 @@
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.BL.Test\bin\Debug\net7.0\CoverletSourceRootsMapping
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.BL.Test\obj\Debug\net7.0\ICS_project.BL.Tests.csproj.AssemblyReference.cache
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.BL.Test\obj\Debug\net7.0\ICS_project.BL.Tests.GeneratedMSBuildEditorConfig.editorconfig
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.BL.Test\obj\Debug\net7.0\ICS_project.BL.Tests.AssemblyInfoInputs.cache
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.BL.Test\obj\Debug\net7.0\ICS_project.BL.Tests.AssemblyInfo.cs
+D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.BL.Test\obj\Debug\net7.0\ICS_project.BL.Tests.csproj.CoreCompileInputs.cache

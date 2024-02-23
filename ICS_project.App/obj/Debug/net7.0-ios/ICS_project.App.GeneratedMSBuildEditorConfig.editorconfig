@@ -1,0 +1,101 @@
+is_global = true
+build_property.TargetFramework = net7.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ICS_project.App
+build_property.ProjectDir = D:\SKOLA\VUT-FIT\2BIT\Letny_semester\ICS\project\project\ICS_project\ICS_project.App\
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Templates/ListViewHeader.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Templates.ListViewHeader.xaml
+build_metadata.AdditionalFiles.TargetPath = Templates\ListViewHeader.xaml
+build_metadata.AdditionalFiles.RelativePath = Templates\ListViewHeader.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Views/Activities/ActivityEditView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Views.Activities.ActivityEditView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Activities\ActivityEditView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Activities\ActivityEditView.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Views/Activities/ActivityFilterEditView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Views.Activities.ActivityFilterEditView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Activities\ActivityFilterEditView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Activities\ActivityFilterEditView.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Views/Activities/ActivityListView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Views.Activities.ActivityListView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Activities\ActivityListView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Activities\ActivityListView.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Views/ContentPageBase.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Views.ContentPageBase.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ContentPageBase.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ContentPageBase.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Views/Projects/ProjectEditView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Views.Projects.ProjectEditView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Projects\ProjectEditView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Projects\ProjectEditView.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Views/Projects/ProjectListView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Views.Projects.ProjectListView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Projects\ProjectListView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Projects\ProjectListView.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Views/Tags/TagListView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Views.Tags.TagListView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Tags\TagListView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Tags\TagListView.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Views/Users/UserEditView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Views.Users.UserEditView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Users\UserEditView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Users\UserEditView.xaml
+
+[D:/SKOLA/VUT-FIT/2BIT/Letny_semester/ICS/project/project/ICS_project/ICS_project.App/Views/Users/UserListView.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = ICS_project.App.Views.Users.UserListView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Users\UserListView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Users\UserListView.xaml

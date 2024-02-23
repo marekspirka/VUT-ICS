@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5b33480c_002Dc298_002D402e_002D83fc_002D783e3c3e015b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="SeededWater_DeleteById_Deleted" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::9DA2CB39-2CCF-424E-9423-8EEDE9DD2F1E::net7.0::ICS_project.BL.Tests.FacadeTests.UserFacadeTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9DA2CB39-2CCF-424E-9423-8EEDE9DD2F1E::net7.0::ICS_project.BL.Tests.FacadeTests.ActivityFacadeTests.GetById_NonExistent&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9DA2CB39-2CCF-424E-9423-8EEDE9DD2F1E::net7.0::ICS_project.BL.Tests.FacadeTests.ActivityFacadeTests.CreateUser_AddUrlImage_AddedImgUrl&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::9DA2CB39-2CCF-424E-9423-8EEDE9DD2F1E::net7.0::ICS_project.BL.Tests.FacadeTests.ActivityFacadeTests.CreateActivity_ChangeName_ChangedName&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<views:ContentPageBase xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                       xmlns:views="clr-namespace:ICS_project.App.Views"
+                       xmlns:m="clr-namespace:ICS_project.BL.Models;assembly=ICS_project.BL"
+                       xmlns:vm="clr-namespace:ICS_project.App.ViewModels"
+                       Title=""
+                       xmlns:templates="clr-namespace:ICS_project.App.Templates"
+                       x:Class="ICS_project.App.Views.Activities.ActivityListView"
+                       x:DataType="vm:ActivityListViewModel"
+                       x:Name="ActivityListViewRoot"
+                       >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <templates:ListViewHeader
+            Grid.Column="0"
+            Grid.Row="0"
+            UserName="{Binding CurrentUser.Name}"
+            UserPhotoLink="{Binding CurrentUser.ImageUrl}"/>
+
+        <Grid
+            Grid.Column="0"
+            Grid.Row="0"
+            BackgroundColor="{StaticResource Primary}"
+            HeightRequest="70"
+            Padding="0,5,0,0"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Text="Fast Time Manager" VerticalTextAlignment="Center" Margin="10,0,0,0"></Label>
+            <FlexLayout
+                Grid.Column="1"
+                JustifyContent="End">
+                <Label Text="{Binding CurrentUser.Name}" VerticalTextAlignment="Center"></Label>
+                <Frame CornerRadius="25" WidthRequest="45" HeightRequest="45" Margin="5,2,0,0" Padding="0" HasShadow="False">
+                    <Image Source="{Binding CurrentUser.ImageUrl}" Aspect="AspectFit" />
+                </Frame>
+                <Button x:Name="ChangeUserButton" Text="Change" BackgroundColor="{StaticResource Primary}" BorderWidth="2" TextColor="White" Margin="10,0,0,0" 
+                        Command="{Binding Source={x:Reference ActivityListViewRoot},Path=BindingContext.GoToChangeUserCommand}"></Button>
+                <Button x:Name="EditUserButton" Text="Edit" BackgroundColor="{StaticResource Primary}" BorderWidth="2" TextColor="White" Padding="25,0,25,0" Margin="10,0,10,0"
+                        Command="{Binding Source={x:Reference ActivityListViewRoot},Path=BindingContext.GoToEditUserCommand}"
+                CommandParameter="{Binding CurrentUser.Id}"></Button>
+            </FlexLayout>
+        </Grid>
+
+        <StackLayout
+            Grid.Column="0"
+            Grid.Row="1"
+            BackgroundColor="{StaticResource Background}"
+            >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75" />
+                    <RowDefinition Height="62" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid
+                        Margin="10,10,0,0"
+                        Grid.Row="0"
+                        ColumnSpacing="10"
+                >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="230" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="140" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+                    <ImageButton Grid.Row="0"
+                                 Grid.Column="7"
+                        x:Name="FilterButton"
+                        Source="filter.png"
+                        Padding="0,20,0,20"
+                        BackgroundColor="Transparent"
+                        Command="{Binding Source={x:Reference ActivityListViewRoot}, Path=BindingContext.FilterTimeCommand}"
+                    />
+                    <Picker 
+                        Grid.Row="0" Title="Period" TitleColor="Black"
+                            x:Name="FilterDatePicker"
+                            Grid.Column="0"
+                            BackgroundColor="Grey"
+                            WidthRequest="125"
+                            SelectedIndex="0"
+                            SelectedIndexChanged="FilterPeriodModeChanged"
+                            SelectedItem="{Binding FilterPeriodMode}">
+                        <Picker.Items>
+                            <x:String>Everything</x:String>
+                            <x:String>Today</x:String>
+                            <x:String>This week</x:String>
+                            <x:String>Last week</x:String>
+                            <x:String>This month</x:String>
+                            <x:String>Last month</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Picker 
+                        Grid.Row="0"
+                            Grid.Column="1"
+                            Title="Tags" TitleColor="Black"
+                            x:Name="FilterTagsPicker"
+                            BackgroundColor="Grey"
+                            WidthRequest="120"
+                            SelectedIndexChanged="FilterTagChanged"
+                            ItemsSource="{Binding Tags}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding FilterTag}">
+                    </Picker>
+                    <Picker
+                        Grid.Row="0"
+                            Grid.Column="2"
+                            Title="Projects" 
+                            TitleColor="Black"
+                            x:Name="FilterProjectsPicker"
+                            BackgroundColor="Grey"
+                            WidthRequest="120"
+                            SelectedIndexChanged="FilterProjectChanged"
+                            ItemsSource="{Binding Projects}"
+                            ItemDisplayBinding="{Binding Name}"
+                            SelectedItem="{Binding FilterProject}">
+                    </Picker>
+                    <TimePicker
+                        Grid.Column="3"
+                        Grid.Row="0"
+                        Time="{Binding FilterTimeStart,Mode=TwoWay}"
+                        IsEnabled="{Binding Source={x:Reference ActivityListViewRoot}, Path=BindingContext.FilterTimeStartCommand}"
+                        BackgroundColor="White"
+                        WidthRequest="250"
+                        TextColor="Black"
+                        Margin="0,19,0,0"
+                        Format="HH-MM"/>
+                    <Image
+                        Grid.Column="4"
+                        Grid.Row="0"
+                        Source="right_arrow.png"
+                        Aspect="AspectFit"
+                        HeightRequest="20"
+                        Margin="0,10,65,0"></Image>
+
+                    <TimePicker
+                        Grid.Column="6"
+                        x:Name="FilterTimePicker"
+                        Grid.Row="0"
+                        WidthRequest="250"
+                        Time="{Binding FilterTimeEnd,Mode=TwoWay}"
+                        BackgroundColor="White"
+                        TextColor="Black"
+                        Format="HH-MM"
+                        Margin="5,19,120,0"
+                    />
+                </Grid>
+                <Frame
+                    BackgroundColor="{StaticResource Tertiary}"
+                    Margin="5"
+                    Padding="10, 3"
+                    CornerRadius="5"
+                    BorderColor="Transparent"
+                    Grid.Row="1"
+                    >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="140" />
+                            <ColumnDefinition Width="138" />
+                            <ColumnDefinition Width="480" />
+                            <ColumnDefinition Width="230" />
+                            <ColumnDefinition Width="120" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Name"
+                               Grid.Column="0"
+                               Margin="0,12,0,0"/>
+                        <Label Text="Project"
+                               Grid.Column="1"
+                               Margin="0,12,0,0"/>
+                        <Label Text="Tag"
+                               Grid.Column="2"
+                               Margin="0,12,0,0"/>
+                        <Label Text="Duration"
+                               Grid.Column="3"
+                               Margin="0,12,0,0"/>
+                        <Button
+                            Grid.Column="4"
+                            Text="New Activity"
+                            BackgroundColor="White"
+                            TextColor="Black"
+                            VerticalOptions="Start"
+                            HorizontalOptions="End"
+                            Margin="0,1,0,0"
+                            MaximumWidthRequest="120"
+                            Command="{Binding Source={x:Reference ActivityListViewRoot}, Path=BindingContext.GoToCreateActivityCommand}"
+                        />
+                    </Grid>
+                    
+                </Frame>
+            </Grid>
+            <CollectionView x:Name="CollectionView" ItemsSource="{Binding Activities}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="m:ActivityDetailModel">
+                        <StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="120" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="130" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="195" />
+                                    <ColumnDefinition Width="125" />
+                                    <ColumnDefinition Width="108" />
+                                    <ColumnDefinition Width="90" />
+                                    <ColumnDefinition Width="1" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0"
+                                       Margin="10,15,0,0"
+                                       Text="{Binding Name}"
+                                       TextColor="{StaticResource Black}"></Label>
+                                <Label 
+                                        Margin="0,16,0,0"
+                                        Grid.Column="1"
+                                        Text="{Binding Project.Name}"
+                                        TextColor="{StaticResource Black}"></Label>
+                                <StackLayout Grid.Column="2">
+                                    <CollectionView ItemsSource="{Binding Tags}">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Label 
+                                                        Margin="0,10,0,0"
+                                                        Text="{Binding Name}"
+                                                        TextColor="{StaticResource Black}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+                                </StackLayout>
+                                <HorizontalStackLayout Spacing="5"
+                                                       Grid.Column="5"
+                                                       Margin="0,15,0,0">
+                                    <Label Text="{Binding Start, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                           TextColor="Black"/>
+                                    <Label Text="--" TextColor="Black"></Label>
+                                    <Label Text="{Binding End, StringFormat='{}{0:dd/MM/yyyy}'}"
+                                           TextColor="Black"/>
+                                </HorizontalStackLayout>
+                                <HorizontalStackLayout Spacing="5"
+                                                       Grid.Column="6"
+                                                       Margin="0,15,0,0">
+                                    <Label Text="{Binding Start, StringFormat='{}{0:HH:mm}'}"
+                                           TextColor="Black"/>
+                                    <Label Text="hod. --" TextColor="Black"></Label>
+                                    <Label Text="{Binding End, StringFormat='{}{0:HH:mm}'}"
+                                           TextColor="Black"/>
+                                    <Label Text="hod." TextColor="Black"></Label>
+                                </HorizontalStackLayout>
+                                <ImageButton 
+                                    Margin="50,15,0,0"
+                                    Grid.Column="7"
+                                    x:Name="EditActivityButton"
+                                    BackgroundColor="Transparent"
+                                    Source="dots.png"
+                                    Padding="9,0,0,22"
+                                    HeightRequest="3"
+                                    WidthRequest="3"
+                                    Command="{Binding Source={x:Reference ActivityListViewRoot}, Path=BindingContext.GoToEditCommand}" CommandParameter="{Binding Id}"/>
+                                <Button Text="Delete"
+                                        Grid.Column="8"
+                                        WidthRequest="80"
+                                        HeightRequest="10"
+                                        Command="{Binding Source={x:Reference ActivityListViewRoot},Path=BindingContext.DeleteActivityCommand}" CommandParameter="{Binding Id}">
+                                </Button>
+                            </Grid>
+                            <BoxView Color="Black" HeightRequest="1" Margin="2"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </Grid>
+</views:ContentPageBase>
